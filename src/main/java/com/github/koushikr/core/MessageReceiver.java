@@ -1,13 +1,12 @@
 package com.github.koushikr.core;
 
 import com.github.koushikr.enums.Exceptions;
+import com.github.koushikr.enums.Status;
 import com.github.koushikr.exceptions.DuplicateInboundMessageException;
 import com.github.koushikr.exceptions.EfficacyException;
-import com.github.koushikr.models.CallEntity.Status;
 import com.github.koushikr.models.InboundEntity;
 import com.github.koushikr.repository.InboundRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.log4j.Logger;
 
 import java.util.Date;
 

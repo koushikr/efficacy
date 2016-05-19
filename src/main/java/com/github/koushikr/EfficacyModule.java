@@ -7,7 +7,6 @@ import com.github.koushikr.repository.InboundRepository;
 import com.github.koushikr.repository.OutboundRepository;
 import com.github.koushikr.repository.impl.InboundMessageDao;
 import com.github.koushikr.repository.impl.OutboundMessageDao;
-import com.github.koushikr.repository.impl.ShardedOutboundMessageDao;
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.google.inject.Scopes;

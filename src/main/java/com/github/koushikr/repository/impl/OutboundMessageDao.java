@@ -1,6 +1,5 @@
 package com.github.koushikr.repository.impl;
 
-import com.github.koushikr.models.InboundEntity;
 import com.github.koushikr.models.OutboundEntity;
 import com.github.koushikr.repository.OutboundRepository;
 import com.google.inject.Singleton;
@@ -42,8 +41,8 @@ public class OutboundMessageDao implements OutboundRepository {
 
     @Override
     public void update(OutboundEntity message) throws Exception {
-        OutboundEntity inboundEntity = findByMessageId(message.getMessageId());
-        message.loadFromMessage(inboundEntity);
+        OutboundEntity outboundEntity = findByMessageId(message.getMessageId());
+        message.loadFromMessage(outboundEntity);
         relationalDao.save(message.getMessageId(), message);
     }
 

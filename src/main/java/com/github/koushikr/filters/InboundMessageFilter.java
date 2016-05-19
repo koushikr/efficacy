@@ -7,6 +7,7 @@ import com.github.koushikr.core.MessageManager;
 import com.github.koushikr.core.MessageReceiver;
 import com.github.koushikr.enums.ErrorCodes;
 import com.github.koushikr.enums.Exceptions;
+import com.github.koushikr.enums.Status;
 import com.github.koushikr.exceptions.EfficacyException;
 import com.github.koushikr.exceptions.MessageLockedException;
 import com.github.koushikr.exceptions.MessageProcessedException;
@@ -46,7 +47,6 @@ public class InboundMessageFilter implements ContainerRequestFilter, ContainerRe
         this.saveRequestBody = saveRequestBody;
     }
 
-
     @Override
     public void filter(ContainerRequestContext requestContext) throws IOException {
         if (InboundUtils.isLoggingEnabled(requestContext)) {
@@ -59,7 +59,7 @@ public class InboundMessageFilter implements ContainerRequestFilter, ContainerRe
                 InboundEntity inboundMessage = receiver.preHandle(message);
                 MessageManager.setCurrentMessage(inboundMessage);
 
-                if (inboundMessage.getProcessed() == InboundEntity.Status.PROCESSED)
+                if (inboundMessage.getProcessed() == Status.PROCESSED)
                     handleProcessedMessage(inboundMessage);
             } catch (Exception e) {
                 if (e instanceof EfficacyException) {
@@ -87,7 +87,7 @@ public class InboundMessageFilter implements ContainerRequestFilter, ContainerRe
             InboundEntity message = null;
 
             try {
-                if (inboundMessage != null && inboundMessage.getProcessed() == InboundEntity.Status.PROCESSED) {
+                if (inboundMessage != null && inboundMessage.getProcessed() == Status.PROCESSED) {
                     log.info("Message with id {} already processed. Returning previous response", inboundMessage.getMessageId());
 
                     //Message already processed, do not set from app, but set data from DB

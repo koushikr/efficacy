@@ -4,8 +4,6 @@ import com.github.koushikr.models.OutboundEntity;
 import io.dropwizard.Configuration;
 import io.dropwizard.sharding.DBShardingBundle;
 
-import javax.el.MethodNotFoundException;
-
 /**
  * Created by koushikr on 19/05/16.
  */
