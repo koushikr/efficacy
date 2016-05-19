@@ -1,6 +1,8 @@
 # efficacy
 The idea of this bundle is to be able to provide you with call logs required on a dropwizard service. 
 
+[![Travis build status](https://travis-ci.org/koushikr/efficacy.svg?branch=master)](https://travis-ci.org/koushikr/efficacy)
+
 The repository url for the same
 ```
     <repository>
