@@ -1,12 +1,12 @@
 package com.github.koushikr.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.dropwizard.sharding.sharding.LookupKey;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.Type;
 
-import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.EnumSet;
 import java.util.HashMap;
@@ -20,7 +20,12 @@ import java.util.Map;
 @Getter
 public abstract class CallEntity {
 
-    @Column(name = "message_id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", unique = true)
+    @Id
+    private long id;
+
+    @Column(name = "message_id", nullable = false, unique = true)
     @LookupKey
     protected String messageId;
 
