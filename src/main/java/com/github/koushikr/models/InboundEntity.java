@@ -2,6 +2,7 @@ package com.github.koushikr.models;
 
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
@@ -13,6 +14,7 @@ import javax.persistence.Table;
 @Setter
 @Getter
 @Entity
+@NoArgsConstructor
 @Table(name = "inbound_messages")
 public class InboundEntity extends CallEntity {
 
