@@ -34,11 +34,11 @@ public class OutboundEntity {
     protected String messageId;
 
     @Type(type = "text")
-    @Column(name = "response_headers")
+    @Column(name = "request_headerss")
     protected String requestHeaders;
 
     @Type(type = "text")
-    @Column(name = "response_body")
+    @Column(name = "request_body")
     protected String requestBody;
 
     @Column(name = "response_status")
