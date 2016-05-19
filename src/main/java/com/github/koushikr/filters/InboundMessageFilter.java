@@ -3,6 +3,7 @@ package com.github.koushikr.filters;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.koushikr.annotations.Inbound;
 import com.github.koushikr.core.MessageManager;
 import com.github.koushikr.core.MessageReceiver;
 import com.github.koushikr.enums.ErrorCodes;
@@ -24,7 +25,6 @@ import javax.ws.rs.container.ContainerRequestFilter;
 import javax.ws.rs.container.ContainerResponseContext;
 import javax.ws.rs.container.ContainerResponseFilter;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.ext.Provider;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -32,9 +32,7 @@ import java.util.Map;
 /**
  * Created by koushikr on 19/05/16.
  */
-@Provider
-@Singleton
-@Slf4j
+@Singleton @Slf4j @Inbound
 public class InboundMessageFilter implements ContainerRequestFilter, ContainerResponseFilter {
 
     private static final ObjectMapper mapper = new ObjectMapper();

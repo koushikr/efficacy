@@ -29,7 +29,7 @@ public class OutboundEntity {
     @Id
     private long id;
 
-    @Column(name = "message_id", nullable = false, unique = true)
+    @Column(name = "message_id", nullable = false)
     @LookupKey
     protected String messageId;
 
