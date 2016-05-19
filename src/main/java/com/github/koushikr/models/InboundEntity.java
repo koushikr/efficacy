@@ -16,10 +16,6 @@ import javax.persistence.Table;
 @Table(name = "inbound_messages")
 public class InboundEntity extends CallEntity {
 
-    public InboundEntity() {
-        super();
-    }
-
     public InboundEntity(InboundEntity message) {
         this.messageId = message.getMessageId();
         this.createdAt = message.getCreatedAt();
@@ -29,31 +25,6 @@ public class InboundEntity extends CallEntity {
         this.responseHeaders = message.getResponseHeaders();
         this.requestBody = message.getRequestBody();
         this.responseStatus = message.getResponseStatus();
-    }
-
-    /**
-     *
-     */
-    public void incrementDuplicateRequestCount() {
-        this.setDuplicateRequestCount(this.getDuplicateRequestCount() + 1);
-    }
-
-    public void loadFromMessage(InboundEntity message) {
-        setMessageId(message.getMessageId());
-        setRetryCount(message.getRetryCount());
-        setResponseStatus(message.getResponseStatus());
-        setResponseBody(message.getResponseBody());
-        setResponseHeaders(message.getResponseHeaders());
-        setProcessed(message.getProcessed());
-        setProcessedAt(message.getProcessedAt());
-        setDuplicateRequestCount(message.getDuplicateRequestCount());
-        setRequestBody(message.getRequestBody());
-
-        if (message.getCreatedAt() != null)
-            setCreatedAt(message.getCreatedAt());
-
-        if (message.getUpdatedAt() != null)
-            setUpdatedAt(message.getUpdatedAt());
     }
 
 }

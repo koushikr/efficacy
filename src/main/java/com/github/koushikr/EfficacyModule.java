@@ -42,9 +42,15 @@ public class EfficacyModule extends AbstractModule{
         return new InboundMessageDao(shardingBundle);
     }
 
+    /**
+     * There is a place holder for sharded_outbound_too, which can shard your table on a daily basis.
+     * Will plug it in if really required.
+     *
+     * @return
+     */
     @Provides @Singleton
     public OutboundRepository provideOutboundRepository(){
-        return new ShardedOutboundMessageDao(shardingBundle);
+        return new OutboundMessageDao(shardingBundle);
     }
 
 }

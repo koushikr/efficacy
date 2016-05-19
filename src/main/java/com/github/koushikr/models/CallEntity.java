@@ -72,7 +72,7 @@ public abstract class CallEntity {
 
         private Integer code = null;
 
-        private Status(Integer code) {
+        Status(Integer code) {
             this.code = code;
         }
 
@@ -83,6 +83,30 @@ public abstract class CallEntity {
         public Integer getCode() {
             return code;
         }
+    }
+
+
+
+    public void loadFromMessage(CallEntity message) {
+        setMessageId(message.getMessageId());
+        setRetryCount(message.getRetryCount());
+        setResponseStatus(message.getResponseStatus());
+        setResponseBody(message.getResponseBody());
+        setResponseHeaders(message.getResponseHeaders());
+        setProcessed(message.getProcessed());
+        setProcessedAt(message.getProcessedAt());
+        setDuplicateRequestCount(message.getDuplicateRequestCount());
+        setRequestBody(message.getRequestBody());
+
+        if (message.getCreatedAt() != null)
+            setCreatedAt(message.getCreatedAt());
+
+        if (message.getUpdatedAt() != null)
+            setUpdatedAt(message.getUpdatedAt());
+    }
+
+    public void incrementDuplicateRequestCount() {
+        this.duplicateRequestCount += 1;
     }
 
 }

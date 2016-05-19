@@ -7,10 +7,12 @@ import com.github.koushikr.models.OutboundEntity;
  */
 public interface OutboundRepository {
 
-    void persist(OutboundEntity message);
+    void persist(OutboundEntity message) throws Exception;
 
-    OutboundEntity findByMessageId(String messageId, String tableName);
+    OutboundEntity findByMessageId(String messageId) throws Exception;
 
-    void update(OutboundEntity message);
+    void update(OutboundEntity message) throws Exception;
+
+    OutboundEntity findByMessageId(String messageId, String tableName) throws Exception;
 
 }
