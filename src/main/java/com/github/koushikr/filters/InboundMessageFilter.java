@@ -25,6 +25,7 @@ import javax.ws.rs.container.ContainerRequestFilter;
 import javax.ws.rs.container.ContainerResponseContext;
 import javax.ws.rs.container.ContainerResponseFilter;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.ext.Provider;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -32,7 +33,7 @@ import java.util.Map;
 /**
  * Created by koushikr on 19/05/16.
  */
-@Singleton @Slf4j @Inbound
+@Singleton @Slf4j @Inbound @Provider
 public class InboundMessageFilter implements ContainerRequestFilter, ContainerResponseFilter {
 
     private static final ObjectMapper mapper = new ObjectMapper();
