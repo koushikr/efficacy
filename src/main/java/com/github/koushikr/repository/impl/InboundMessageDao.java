@@ -2,6 +2,7 @@ package com.github.koushikr.repository.impl;
 
 import com.github.koushikr.models.InboundEntity;
 import com.github.koushikr.repository.InboundRepository;
+import com.google.inject.Singleton;
 import io.dropwizard.Configuration;
 import io.dropwizard.sharding.DBShardingBundle;
 import io.dropwizard.sharding.dao.LookupDao;
@@ -12,6 +13,7 @@ import java.sql.Date;
 /**
  * Created by koushikr on 19/05/16.
  */
+@Singleton
 public class InboundMessageDao implements InboundRepository {
 
     private final RelationalDao<InboundEntity> relationalDao;
