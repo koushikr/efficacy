@@ -28,7 +28,7 @@ public class InboundUtils {
 
     public static boolean isLoggingEnabled(ContainerRequestContext request) {
         String loggingEnabled = request.getHeaderString(LOGGING_ENABLED.getHeaderName());
-        return null == loggingEnabled || (null != request.getHeaderString(MESSAGE_ID.getHeaderName()) && Boolean.valueOf(loggingEnabled));
+        return null != request.getHeaderString(MESSAGE_ID.getHeaderName()) && (null == loggingEnabled || Boolean.valueOf(loggingEnabled));
     }
 
     public static void setupTransactionTracing(ContainerRequestContext request) {
