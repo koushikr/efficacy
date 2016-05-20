@@ -22,18 +22,12 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class EfficacyModule extends AbstractModule{
 
-    private EfficacyConfiguration efficacyConfiguration;
     private DBShardingBundle<? extends Configuration> shardingBundle;
 
     @Override
     protected void configure() {
         bind(MessageReceiver.class).toProvider(MessageReceiverProvider.class).in(Scopes.SINGLETON);
         bind(InboundMessageFilter.class).in(Scopes.SINGLETON);
-    }
-
-    @Provides @Named("save_request_body")
-    public boolean provideSaveRequestBodyConfiguration(){
-        return efficacyConfiguration.isSaveRequestBody();
     }
 
     @Provides @Singleton

@@ -38,12 +38,11 @@ public class InboundMessageFilter implements ContainerRequestFilter, ContainerRe
 
     private static final ObjectMapper mapper = new ObjectMapper();
     private MessageReceiver receiver;
-    private Boolean saveRequestBody;
+    private static final Boolean saveRequestBody = true; //TODO::Make sure this guy is moved to config
 
     @Inject
-    public InboundMessageFilter(MessageReceiver messageReceiver, @Named("saveRequestBody") Boolean saveRequestBody) {
+    public InboundMessageFilter(MessageReceiver messageReceiver) {
         this.receiver = messageReceiver;
-        this.saveRequestBody = saveRequestBody;
     }
 
     @Override
