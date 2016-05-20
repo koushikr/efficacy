@@ -47,7 +47,7 @@ public class InboundMessageFilterTest {
     @Before
     public void setup() throws Exception{
         MockitoAnnotations.initMocks(this);
-        idempotencyFilter = new InboundMessageFilter(receiver, true);
+        idempotencyFilter = new InboundMessageFilter(receiver);
 
         mockStatic(InboundMessageFilter.class);
         when(receiver.preHandle(message)).thenReturn(inboundMessage);
